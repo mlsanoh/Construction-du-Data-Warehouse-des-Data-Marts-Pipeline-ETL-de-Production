@@ -17,3 +17,6 @@
 
 -- Etapes 6: Data Mart - Mise à jour data mart sur les de rôles prioritaires
 .read 06_Update_Dmart_role_prioritaire.sql
+
+-- Etape 7: Data Mart - Création de data mart sur les Entreprises
+.read 07_Creation_DMart_Entreprise.sql

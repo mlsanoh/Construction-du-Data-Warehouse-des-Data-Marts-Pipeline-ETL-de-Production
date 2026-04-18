@@ -219,6 +219,6 @@ SELECT company_id,
 FROM fact_company_monthly_pre,
 GROUP BY company_id, job_title_short_id, month_start_date, job_country;
 
--- Validation de donnée dim_job_title_short
+-- Validation de donnée fact_company_hiring_monthly
 SELECT *
 FROM company_mart.fact_company_hiring_monthly;
