@@ -1,9 +1,9 @@
 --Etape 3: Data Mart - Création table de données denormalisées
-DROP SCHEMA IF EXISTS flat_data_Mart CASCADE;
+DROP SCHEMA IF EXISTS flat_data_mart CASCADE;
 
-CREATE SCHEMA flat_data_Mart;
+CREATE SCHEMA flat_data_mart;
 
-CREATE OR REPLACE TABLE flat_dm_job_postings AS
+CREATE OR REPLACE TABLE flat_data_mart.flat_dm_job_postings AS
 SELECT 
     jpf.job_id,
     jpf.company_id,
@@ -33,8 +33,8 @@ LEFT JOIN skills_dim AS sd
 
 -- Validation de données
 
-SELECT COUNT(*) FROM flat_dm_job_postings;
+SELECT COUNT(*) FROM flat_data_mart.flat_dm_job_postings;
 
 SELECT job_title_short, COUNT(*)
-FROM flat_dm_job_postings
+FROM flat_data_mart.flat_dm_job_postings
 GROUP BY job_title_short;
