@@ -113,9 +113,15 @@ Implémente un schéma en étoile servant de source unique de vérité.
 
 - **MERGE :** Utilisation des clauses ``WHEN MATCHED`` et ``WHEN NOT MATCHED`` pour la production.
 
+- **Fonctions de Fenêtrage (Window Functions) :** Maîtrise de ``DENSE_RANK()`` combiné à la clause ``OVER(ORDER BY...)`` pour générer des identifiants uniques et hiérarchiques (comme ``job_title_id``) basés sur des valeurs textuelles.  
+
+- **Génération de Clés Substitutives :** Utilisation de fonctions analytiques pour transformer des données métier en clés techniques robustes, facilitant les jointures dans les Data Marts.  
+
+- **Jointures Complexes:** Gestion des relations plusieurs-à-plusieurs via des tables de liaison.
+
 - **CTEs :** Expressions de table communes pour les transformations complexes.
 
-- **Fonctions Temporelles & Chaînes :** ``DATE_TRUNC``, ``EXTRACT``, ``STRING_AGG``, ``REPLACE``.
+- **Fonctions Temporelles & Chaînes :** ``DATE_TRUNC``, ``REPLACE``.
 
 - **Logique Booléenne :** Utilisation de ``CASE WHEN`` pour agréger des indicateurs (télétravail, assurance, etc.).
 
