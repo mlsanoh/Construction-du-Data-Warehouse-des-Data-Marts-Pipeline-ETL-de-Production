@@ -2,7 +2,7 @@
 
 Un pipeline d'ingénierie des données de bout en bout qui transforme des fichiers CSV bruts provenant de Google Cloud Storage en un entrepôt de données (Data Warehouse) normalisé en schéma en étoile, puis construit des magasins de données (Data Marts) analytiques.
 
-![alt text](/Sql_Data_Engeneering\Image\Project2_Data_Pipeline.png)
+![Architecture du Pipeline](Image/Project2_Data_Pipeline.png)
 
 ## 🧾 Résumé Exécutif (Pour les recruteurs)
 - ✅ **Portée du pipeline** : Construction d'un pipeline ETL complet, du CSV brut au schéma en étoile, jusqu'aux data marts analytiques.
@@ -56,7 +56,7 @@ Elaboration_dw
 ```
 
 # 🏗️ Architecture du Pipeline
-![alt text](/Sql_Data_Engeneering\Image\Project2_Data_Pipeline.png)
+![Architecture du Pipeline](Image/Project2_Data_Pipeline.png)
 
 Le pipeline transforme les fichiers CSV d'offres d'emploi provenant de Google Cloud Storage en un entrepôt de données (Data Warehouse) normalisé selon un schéma en étoile, puis construit des magasins de données (Data Marts) analytiques spécialisés. Les outils de BI (Excel, Power BI, Tableau, Python) consomment les données aussi bien à partir de l'entrepôt que des marts.
 
@@ -67,28 +67,28 @@ duckdb dw_marts.duckdb -c ".read Elaboration_dw.sql"
 ### Data Warehouse
 Implémente un schéma en étoile servant de source unique de vérité.
 
-![alt text](/Sql_Data_Engeneering\Image\Data_Warehouse.png)
+![Schéma du Data Warehouse](Image/Data_Warehouse.png)
 
-- **Fichiers :** [01_Creation_Tables_dw.sql](\01_Creation_Tables_dw.sql)  et [02_Insertion_donnees_dw.sql](\02_Insertion_donnees_dw.sql).
+- **Fichiers :** [01_Creation_Tables_dw.sql](01_Creation_Tables_dw.sql)  et [02_Insertion_donnees_dw.sql](02_Insertion_donnees_dw.sql).
 
 - **Grain :** Une ligne par offre d'emploi dans la table de faits (``job_postings_fact``).
 
 ### Data Marts Spécialisés
-**1. Flat Mart** ( [03_Flat_Data_Mart.sql](\03_Flat_Data_Mart.sql) ) **:** Table dénormalisée pour les requêtes ad-hoc rapides. 
+**1. Flat Mart** ( [03_Flat_Data_Mart.sql](03_Flat_Data_Mart.sql) ) **:** Table dénormalisée pour les requêtes ad-hoc rapides. 
 
-![alt text](/Sql_Data_Engeneering\Image\Flat_Mart.png)
+![Schéma du Flat Mart](Image/Flat_Mart.png)
 
-**2. Skills Mart** ( [04_Creation_DMart_Competence.sql](\04_Creation_DMart_Competence.sql) ) **:** Analyse temporelle de la demande de compétences. Grain : ``skill_id + month_start_date + job_title_short``.
+**2. Skills Mart** ( [04_Creation_DMart_Competence.sql](04_Creation_DMart_Competence.sql) ) **:** Analyse temporelle de la demande de compétences. Grain : ``skill_id + month_start_date + job_title_short``.
 
-![alt text](/Sql_Data_Engeneering\Image\Skills_Mart.png)
+![Schéma du Skills Mart](Image/Skills_Mart.png)
 
-**3. Priority Mart**   ( [05_Creation_DMart_role_prioritaire.sql](\05_Creation_DMart_role_prioritaire.sql) ) et  ( [06_Update_Dmart_role_prioritaire.sql](\06_Update_Dmart_role_prioritaire.sql) )  **:** Suivi des rôles prioritaires. Utilise des opérations MERGE pour démontrer des modèles d'upsert prêts pour la production.
+**3. Priority Mart**   ( [05_Creation_DMart_role_prioritaire.sql](05_Creation_DMart_role_prioritaire.sql) ) et  ( [06_Update_Dmart_role_prioritaire.sql](06_Update_Dmart_role_prioritaire.sql) )  **:** Suivi des rôles prioritaires. Utilise des opérations MERGE pour démontrer des modèles d'upsert prêts pour la production.
 
-![alt text](/Sql_Data_Engeneering\Image\Priority_Mart.png)
+![Schéma du Priority Mart](Image/Priority_Mart.png)
 
-**4. Company Mart**        ( [07_Creation_DMart_Entreprise.sql](/07_Creation_DMart_Entreprise.sql) ) **:** Tendances de recrutement par entreprise, lieu et mois.
+**4. Company Mart**        ( [07_Creation_DMart_Entreprise.sql](07_Creation_DMart_Entreprise.sql) ) **:** Tendances de recrutement par entreprise, lieu et mois.
 
-![alt text](/Sql_Data_Engeneering\Image\Company_Mart.png)
+![Schéma du Company Mart](Image/Company_Mart.png)
 
 ## 💻 Compétences en Ingénierie des Données Démontrées
 
