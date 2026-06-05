@@ -1,0 +1,5 @@
+*.duckdb
+../*.duckdb
+*.db
+dw_marts.duckdb
+Sql_Data_Engeneering/dw_marts.duckdb
